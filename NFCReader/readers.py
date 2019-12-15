@@ -4,7 +4,6 @@ from smartcard.scard import SCARD_CTL_CODE, SCARD_SHARE_DIRECT, SCARD_SHARE_SHAR
 
 
 
-
 class nfcReader():
     def __init__(self, reader):
         self._reader = reader.createConnection()
@@ -48,11 +47,4 @@ def getReader(readerNum = 0):
     if str(reader) == 'ACS ACR122U':
         return acr122uReader(reader)
     else:
-        return acr1252uReader(reader)  
-    
-    """elif reader == 'ACS ACR1252 1S CL Reader [ACR1252 Dual Reader PICC] 00 00':
-        print ('newone')
-    else:
-        print('not rego')
-    pass
-    """
+        return acr1252uReader(reader)

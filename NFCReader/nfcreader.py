@@ -13,7 +13,7 @@ import sys
 import logging
 
 
-import readers as red
+import NFCReader.readers as red
 
 from smartcard.Exceptions import NoCardException, CardConnectionException
 COMMAND = [0xFF, 0xCA, 0x00, 0x00, 0x00] #handshake cmd needed to initiate data transfer
@@ -107,7 +107,8 @@ class NFCreader():
                 ncard.getUID()
                 #card.connection.addObserver(self.observer)
                 self.InCallback(ncard)
-                #print(toHexString(card.connection.getATR()))    
+
+                #print(toHexString(card.connection.getATR()))
                 #card.connection.disconnect()
             for card in removedcards:
                 self.outCallback(card)
