@@ -31,6 +31,7 @@ class acr1252uReader(nfcReader):
         pass
 
     def beep(self, length = 5):
+        print("beep")
         #self._reader.control(SCARD_CTL_CODE(3500), [0xFF, 0x00, 0x40, 0xC3, 0x04, 0x04, 0x06, 0x01, 0x01]);
         self._reader.control(SCARD_CTL_CODE(3500), [0xE0, 0x00, 0x00, 0x28, 0x01, length]);
 
