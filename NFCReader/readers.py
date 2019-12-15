@@ -1,7 +1,7 @@
 from smartcard.System import readers
 from smartcard.scard import SCARD_CTL_CODE, SCARD_SHARE_DIRECT, SCARD_SHARE_SHARED
 
-
+import time
 
 
 class nfcReader():
@@ -30,10 +30,13 @@ class acr1252uReader(nfcReader):
         #self._reader.control(SCARD_CTL_CODE(3500), [0xE0, 0x00, 0x00, 0x21, 0x01, 0x00])
         pass
 
-    def beep(self, length = 5):
-        print("beep")
+    def beep(self, repeat=1, length=5):
         #self._reader.control(SCARD_CTL_CODE(3500), [0xFF, 0x00, 0x40, 0xC3, 0x04, 0x04, 0x06, 0x01, 0x01]);
-        self._reader.control(SCARD_CTL_CODE(3500), [0xE0, 0x00, 0x00, 0x28, 0x01, length]);
+        i=0
+        while i < repeat:
+            self._reader.control(SCARD_CTL_CODE(3500), [0xE0, 0x00, 0x00, 0x28, 0x01, length])
+            time.sleep((length*10)/1000)
+            i += 1
 
     def set_led(self, red, green):
         val = int('0b000000{}{}'.format(int(green), int(red)), 2)
