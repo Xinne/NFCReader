@@ -26,7 +26,7 @@ class acr122uReader(nfcReader):
     pass
 
 class acr1252uReader(nfcReader):
-    def remove_led_and_buzzer(self)
+    def remove_led_and_buzzer(self):
         self._reader.control(SCARD_CTL_CODE(3500), [0xE0, 0x00, 0x00, 0x21, 0x01, 0x00])
 
     def beep(self, length = 5):
