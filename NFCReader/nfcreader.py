@@ -24,7 +24,6 @@ LOAD_KEY_A_MSG =  [0xFF, 0x82, 0x00, 0x00, 0x06]
 reader = None
 def init(callback, cb2):
     global reader
-    print(readers())
 
     reader = NFCreader(callback, cb2)
     return reader
